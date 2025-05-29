@@ -1,0 +1,91 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: #ffe6e6 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 60% 40%, #ffb3c6 0%, #ffe6e6 100%);
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  animation: pulse-bg 3s infinite alternate;
+}
+
+@keyframes pulse-bg {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
+input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  width: 80%;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: #e60039;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 8px rgba(230,0,57,0.15);
+}
+
+button:hover {
+  background: #b3002d;
+}
+
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 4px rgba(230,0,57,0.10);
+}
+
+#result {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #b3002d;
+  font-weight: bold;
+  text-shadow: 1px 1px 8px #ffe6e6, 0 0 2px #e60039;
+  letter-spacing: 1px;
+  animation: pop 0.5s;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
